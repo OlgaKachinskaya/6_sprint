@@ -1,0 +1,12 @@
+import pytest
+from selenium import webdriver
+from webdriver_manager.firefox import GeckoDriverManager
+from data import TestData
+
+@pytest.fixture
+def driver():
+    driver = webdriver.Firefox()
+    driver.maximize_window()
+    driver.get(TestData.scooter_address)
+    yield driver
+    driver.quit()

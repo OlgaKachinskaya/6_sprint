@@ -1,0 +1,22 @@
+from selenium.webdriver.common.by import By
+
+class OrderPageLocators:
+    title_page_personal = [By.XPATH, "//div[text()='Для кого самокат' and contains(@class, 'Order_Header')]"]
+    name = [By.XPATH, "//input[@placeholder='* Имя']"]
+    lastname = [By.XPATH, "//input[@placeholder='* Фамилия']"]
+    address = [By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']"]
+    metro = [By.XPATH, "//input[@placeholder='* Станция метро']"]
+    select_item_in_dropdown_metro = [By.XPATH, ".//li[@class='select-search__row']"]
+    telephone = [By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']"]
+    button_next = [By.XPATH, "//button[text()='Далее']"]
+    title_page_rent = [By.XPATH, "//div[text()='Про аренду' and contains(@class, 'Order_Header')]"]
+    date = [By.XPATH, "//input[@placeholder='* Когда привезти самокат']"]
+    calendar = [By.XPATH, "//div[@class='react-datepicker-popper']"]
+    calendar_item = [By.XPATH, "//div[contains(@class, 'react-datepicker') and contains(@tabindex, '0')]"]
+    field_rental_period = [By.XPATH, '//div[contains(@class, "Dropdown-root")]']
+    dropdown_rental_period = [By.XPATH, '//div[contains(@class, "Dropdown-option") and contains(text(), "сутки")]']
+    checkbox_black_color_scooter = [By.XPATH, "//input[@id='black']"]
+    comment = [By.XPATH, "//input[@placeholder='Комментарий для курьера']"]
+    button_make_order = [By.XPATH, "//div[contains(@class, 'Order_Buttons')]/button[text()='Заказать']"]
+    button_yes_confirm_order = [By.XPATH, "//button[text()='Да']"]
+    button_check_status_of_order = [By.XPATH, ".//*[text()='Посмотреть статус']"]
