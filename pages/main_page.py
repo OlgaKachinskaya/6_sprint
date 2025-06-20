@@ -47,9 +47,7 @@ class MainPage(BasePage):
 
     @allure.step('Нажать на нужный номер вопроса в секции в вопросы о важном')
     def click_on_faq_items(self, data):
-        element = self.driver.find_element(*MainPageLocators.faq_questions_items[data])
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element).pause(0.5).click().perform()
+        self.click_on_element(MainPageLocators.faq_questions_items[data])
 
     @allure.step('ждем прогрузки необходимого номера ответа в Вопросах о важном')
     def wait_visibility_of_faq_answer(self, data):

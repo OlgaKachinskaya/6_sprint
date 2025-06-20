@@ -14,3 +14,5 @@ class TestData:
     ]
 
     scooter_address = 'https://qa-scooter.praktikum-services.ru/'
+
+    dzen_url = 'dzen.ru'

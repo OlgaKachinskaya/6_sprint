@@ -1,6 +1,4 @@
 import allure
-import pytest
-
 from data import TestData
 from locators.order_page_locators import OrderPageLocators
 from .base_page import BasePage
@@ -10,17 +8,15 @@ class OrderPage(BasePage):
     @allure.step('Заполнение первой части полей формы и нажать Далее')
     def data_entry_first_form(self, test_data):
         self.wait_visibility_of_element(OrderPageLocators.name)
-        self.driver.find_element(*OrderPageLocators.name).send_keys(test_data[0])
-        self.driver.find_element(*OrderPageLocators.lastname).send_keys(test_data[1])
-        self.driver.find_element(*OrderPageLocators.address).send_keys(test_data[2])
-        metro = self.driver.find_element(*OrderPageLocators.metro)
-        metro.click()
-        metro.send_keys(test_data[3])
-        import time
-        time.sleep(1)
-        self.driver.find_element(*OrderPageLocators.select_item_in_dropdown_metro).click()
-        self.driver.find_element(*OrderPageLocators.telephone).send_keys(test_data[4])
-        self.driver.find_element(*OrderPageLocators.button_next).click()
+        self.send_key_to_input(OrderPageLocators.name, test_data[0])
+        self.send_key_to_input(OrderPageLocators.lastname, test_data[1])
+        self.send_key_to_input(OrderPageLocators.address, test_data[2])
+        self.click_on_element(OrderPageLocators.metro)
+        self.send_key_to_input(OrderPageLocators.metro, test_data[3])
+        self.wait_visibility_of_element(OrderPageLocators.select_item_in_dropdown_metro)
+        self.click_on_element(OrderPageLocators.select_item_in_dropdown_metro)
+        self.send_key_to_input(OrderPageLocators.telephone, test_data[4])
+        self.click_on_element(OrderPageLocators.button_next)
 
     @allure.step('Заполнение второй части полей формы и подтвердение')
     def data_entry_second_form(self, test_data):

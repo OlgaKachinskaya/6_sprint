@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from locators.main_page_locators import MainPageLocators
 from pages.order_page import OrderPage
 from data import TestData
-from conftest import driver
+
 
 class TestOrderPage:
     @allure.title('Проверка удачного формления заказа')

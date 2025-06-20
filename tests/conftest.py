@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+from webdriver_manager.firefox import GeckoDriverManager
 from data import TestData
 
 @pytest.fixture

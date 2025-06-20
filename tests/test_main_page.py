@@ -3,7 +3,6 @@ import os
 import allure
 import pytest
 from data import TestData
-from conftest import driver
 from pages.main_page import MainPage
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 

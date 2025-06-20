@@ -39,3 +39,26 @@ class BasePage:
 
     def get_page_title(self):
         return self.driver.title
+
+    @allure.step('Ожидать URL, содержащий "{text}"')
+    def wait_url_contains(self, text, timeout=10):
+        WebDriverWait(self.driver, timeout).until(
+            EC.url_contains(text)
+        )
+
+    @allure.step('Получить текущий URL')
+    def current_url(self):
+        return self.driver.current_url
+
+    @allure.step('Проверка, что открылся Дзен')
+    def verify_dzen_url(self):
+        self.wait_url_contains("dzen.ru")
+        return "dzen.ru" in self.current_url()
+
+    @allure.step('Переключиться на новую вкладку')
+    def switch_to_new_tab(self, timeout=5):
+        WebDriverWait(self.driver, timeout).until(
+            lambda d: len(d.window_handles) > 1
+        )
+        self.driver.switch_to.window(self.driver.window_handles[-1])
+
